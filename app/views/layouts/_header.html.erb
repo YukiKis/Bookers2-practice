@@ -1,0 +1,64 @@
+<div class="row">
+<header class="header">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarHeader">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Bookers2</a>
+    </div>
+
+    <div class="collapse navbar-collapse bg-dark" id="navbarHeader">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <span class="glyphicon glyphicon-home"></span>Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_path do %>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Users
+            <% end %>
+          </li>
+          <li>
+            <%= link_to books_path do %>
+              <span class="glyphicon glyphicon-book"></span>Books
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do%>
+              <span class="	glyphicon glyphicon-log-out", aria-hidden="true">logout
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to root_path do %>
+              <span class="glyphicon glyphicon-home"></span>Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "About", homes_about_path do %>
+              <span class="glyphicon glyphicon-link"></span>About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <span class="glyphicon glyphicon-new-window"></span>Signup
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <span class="glyphicon glyphicon-log-in"></span>Login
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+   </nav>
+    <% if flash.any? %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+</header>
+</div>

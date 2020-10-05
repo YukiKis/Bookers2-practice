@@ -1,0 +1,20 @@
+<section class="user-info">
+  <h3>User info</h3>
+  <%= attachment_image_tag user, :profile_image, :fill, 30, 30, format: "jpg", fallback: "noimage.jpg", size: "50x50" %>
+  <table class="table">
+    <tr><th>name</th><td><%= user.name %></td></tr>
+    <tr><th>introduction</th><td><%= user.introduction %></td></tr>
+  </table>
+  <%= link_to "Setting", edit_user_path(user), class: "btn btn-block btn-info"%>
+</section>
+
+<section class="book-new">
+  <h3 class="New Book">
+  <%= form_with model: book_new, local: true, class: "form-group" do |f|%>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= f.label :body %>
+    <%= f.text_area :body, class:"form-control" %>
+    <%= f.submit "Create New Book", class: "btn btn-block btn-primary" %>
+  <% end %>
+</section>

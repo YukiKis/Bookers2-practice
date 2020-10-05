@@ -1,0 +1,24 @@
+<%= render "books/error", book: @book_new%>
+
+<div class="col-xs-3">
+  <%= render "layouts/sidebar", user: current_user, book_new: @book_new%>
+</div>
+
+<div class="col-xs-9">
+  <h3>Users</h3>
+  <table class="table table-hover">
+    <thead>
+      <th>image</th><th>name</th></th>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, :fill, 30, 30, format: "jpeg", fallback: "noimage.jpg", size: "30x30" %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "Show", user_path(user) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate%>
+</div>
