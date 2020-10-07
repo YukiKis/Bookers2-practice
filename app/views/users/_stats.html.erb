@@ -1,0 +1,7 @@
+<%= link_to followers_user_path(user) do %>
+  <%= pluralize(user.followers.count, "follower") %>
+<% end %>
+|
+<%= link_to following_user_path(user), remote: true do %>
+  <%= pluralize(user.following.count, "following") %>
+<% end %>

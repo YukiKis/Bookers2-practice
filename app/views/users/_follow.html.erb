@@ -1,0 +1,8 @@
+<table class="table">
+  <% follows.each do |f| %>
+    <tr>
+      <th><%= attachment_image_tag f, :profile_image, :fill, 30, 30, format: "jpg", fallback: "noimage.jpg", size: "30x30" %><br></th>
+      <td><%= link_to f.name, user_path(f) %></td>
+    </tr>
+  <% end %>
+</table>

@@ -4,16 +4,25 @@
   <table class="table">
     <tr><th>name</th><td><%= user.name %></td></tr>
     <tr><th>introduction</th><td><%= user.introduction %></td></tr>
+    <tr>
+      <th id="user-stats">
+        <%= render "users/stats", user: user %>
+      </th>
+    </tr>
   </table>
   <%= link_to "Setting", edit_user_path(user), class: "btn btn-block btn-info"%>
 </section>
 
+<div id="follow-btn">
+  <%= render "users/follow-btn", user: user%>
+</div>
+
 <section class="book-new">
   <h3 class="New Book">
   <%= form_with model: book_new, local: true, class: "form-group" do |f|%>
-    <%= f.label :title %><br>
+    <%= f.label :title, class: "control-label" %><br>
     <%= f.text_field :title, class: "form-control" %>
-    <%= f.label :body %>
+    <%= f.label :body, class: "control-label" %>
     <%= f.text_area :body, class:"form-control" %>
     <%= f.submit "Create New Book", class: "btn btn-block btn-primary" %>
   <% end %>

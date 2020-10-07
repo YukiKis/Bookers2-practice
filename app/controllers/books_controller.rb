@@ -20,7 +20,7 @@ class BooksController < ApplicationController
     @book_new = Book.new(book_params)
     @book_new.user_id = current_user.id
     if @book_new.save
-      redirect_to book_new
+      redirect_to @book_new
     else
       @books = Book.paginate(page: params[:page])
       render "index"

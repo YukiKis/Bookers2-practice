@@ -6,10 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do |n|
-  User.create!(name: "#{n + 1}太", introduction: "Hello", email: "sample#{n + 1}@testtestcomcom", password: "password", password_confirmation: "password")
-end
-
-100.times do |n|
-  Book.create!(user_id: n, title: "#{n + 1}の告白", body: "素晴らしい")
-end
+User.create([
+  { name: "yuki", email: "yuki@com", password: "testtest", password_confirmation: "testtest"},
+  {  name: "yuna", email: "yuna@com", password: "testtest", password_confirmation: "testtest" }
+])
